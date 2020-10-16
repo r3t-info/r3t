@@ -1,0 +1,42 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  @font-face {
+    font-family: Munken Sans;
+    font-weight: 400;
+    src: url(/fonts/munken-sans/MunkenSansWeb-Regular.woff2) format("woff2"),
+      url(/fonts/munken-sans/MunkenSansWeb-Regular.woff) format("woff");
+  }
+  @font-face {
+    font-family: Munken Sans;
+    font-weight: 500;
+    src: url(/fonts/munken-sans/MunkenSansWeb-Medium.woff2) format("woff2"),
+      url(/fonts/munken-sans/MunkenSansWeb-Medium.woff) format("woff");
+  }
+  @font-face {
+    font-family: Munken Sans;
+    font-weight: 700;
+    src: url(/fonts/munken-sans/MunkenSansWeb-Bold.woff2) format("woff2"),
+      url(/fonts/munken-sans/MunkenSansWeb-Bold.woff) format("woff");
+  }
+  h1, h2, h3, h4, h5, p, span, address, a {
+    @apply text-gray-900;
+  }
+  h1, h2, h4, h5, p {
+    @apply mb-4;
+  }
+  h2 {
+    @apply text-3xl font-bold;
+  }
+  h4 {
+    @apply text-2xl font-medium;
+  }
+  h5 {
+    @apply text-xl font-medium;
+  }
+  a {
+    @apply underline;
+  }
+}
