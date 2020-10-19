@@ -27,6 +27,9 @@
   h1, h2, h4, h5, p {
     @apply mb-4;
   }
+  h1 {
+    @apply text-6xl font-bold tracking-tighter border-gray-900 border-b-8;
+  }
   h2 {
     @apply text-3xl font-bold;
   }
