@@ -21,23 +21,17 @@
     src: url(/fonts/munken-sans/MunkenSansWeb-Bold.woff2) format("woff2"),
       url(/fonts/munken-sans/MunkenSansWeb-Bold.woff) format("woff");
   }
-  h1, h2, h3, h4, h5, p, span, address, a {
+  h1, h2, h4, p, span, address, a {
     @apply text-gray-900;
   }
-  h1, h2, h4, h5, p {
+  p {
     @apply mb-4;
   }
-  h1 {
-    @apply text-6xl font-bold tracking-tighter border-gray-900 border-b-8;
-  }
-  h2 {
-    @apply text-3xl font-bold;
-  }
   h4 {
-    @apply text-2xl font-medium;
-  }
-  h5 {
     @apply text-xl font-medium;
+  }
+  #our-method p {
+    @apply text-2xl tracking-tight;
   }
   a {
     @apply underline;

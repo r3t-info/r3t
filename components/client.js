@@ -1,18 +1,18 @@
-export default function Client({ children }) {
+export default function Client({ clientData }) {
   return (
-    <div key={children.id} id={`client-${children.id}`} className="border-2 border-teal-500 rounded-2xl p-3 lex flex-row flex-wrap">
-      <div id={`client-header-${children.id}`} className="w-full flex flex-row flex-nowrap">
-        <div className="mb-4">
-          <img src={children.img} alt={children.name} className="h-auto w-56 rounded-full" />
+    <div key={clientData.id} id={`client-${clientData.id}`} className="border-8 border-teal-300 rounded-xl p-4 flex flex-col">
+      <div id={`client-header-${clientData.id}`} className="w-full flex flex-row flex-nowrap pb-4">
+        <div className="flex-shrink-0">
+          <img src={clientData.img} alt={clientData.name} className="h-auto w-20 rounded-3xl" />
         </div>
-        <div className="pl-2 py-2">
-          <h5>
-            {children.name}, <span className="text-gray-600">{children.position} at {children.company}</span>
-          </h5>
+        <div className="pl-2 flex-shrink">
+          <h4>
+            {clientData.name} <p className="text-lg text-gray-600 font-normal tracking-tight leading-tight">{clientData.position} <span className="text-gray-900">at</span> {clientData.company}</p>
+          </h4>
         </div>
       </div>
-      <div id={`client-body-${children.id}`} className="w-full flex">
-        <p className="mb-0">{children.content}</p>
+      <div id={`client-body-${clientData.id}`} className="w-full">
+        <p className="leading-snug mb-0">{clientData.content}</p>
       </div>
     </div>
   );
