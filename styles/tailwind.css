@@ -36,4 +36,10 @@
   a {
     @apply underline;
   }
+  @screen lg {
+    #our-method p {
+      @apply tracking-normal leading-normal mb-6;
+    }
+  }  
 }
+
