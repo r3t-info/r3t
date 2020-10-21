@@ -36,17 +36,15 @@ export default function Home(props) {
           </section>
           <section id="our-method">
             <p>
-              <span className="font-medium">The T3 method</span> begins by scouting the most committed decision makers
+              <span className="font-medium">The 3T method</span> begins by scouting the most committed decision makers
               and domain experts in your organisation.
             </p>
             <p>
-              Together we define a business challenge, such as implementing a new business strategy or creating new
-              digitised products or services.
+            Together we define opportunities such as improving your business strategies or creating new digitised products or services.
             </p>
-            <p>Then we start to solve the challenge through iterations via rapid prototyping and weekly dialogues.</p>
+            <p>Then we implement these opportunities through iterations via rapid prototyping with weekly dialogues.</p>
             <p>
-              What makes us different is our scientifically-designed integration tools which guarantee sustainable and
-              scalable solutions.
+            What makes us different is our scientifically-designed integration tools which guarantee sustainable and scalable solutions.
             </p>
           </section>
           <section id="our-clients" className="space-y-5">
@@ -58,7 +56,7 @@ export default function Home(props) {
           <div className="mb-4 h-20">
             <img src="images/arrow-down.svg" alt="arrow down" className="h-full mx-auto" />
           </div>
-          <h2 class="text-center text-3xl font-medium mb-6">Let's solve a problem!</h2>
+          <h2 className="text-center text-3xl font-medium mb-6">Let’s realise your opportunities!</h2>
           <address className="my-4 not-italic">
             <h4>
               Jens Ohlsson
