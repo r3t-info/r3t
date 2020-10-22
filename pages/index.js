@@ -3,6 +3,11 @@ import Client from "../components/client";
 import { getSortedClientsData } from "../lib/getSortedClientsData";
 
 const name = "R3T";
+const url = "https://www.r3t.info/";
+const socialTitle = `${name} — Changing the delivery of digital strategies, management, and consulting.`;
+const socialImage = "images/r3t-social-image.png";
+const socialDescription =
+  "We are a digital services company changing the way digital strategies, management, and consulting are delivered. We work with the 3T method which is based on Swedish research.";
 
 export default function Home(props) {
   const allClientsAsCards = props.allClientsData.map((clientData) => {
@@ -12,7 +17,24 @@ export default function Home(props) {
   return (
     <>
       <Head>
-        <title>{name}</title>
+        <title>{socialTitle}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta name="title" content={socialTitle} />
+        <meta name="description" content={socialDescription} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={url} />
+        <meta property="og:title" content={socialTitle} />
+        <meta property="og:description" content={socialDescription} />
+        <meta property="og:image" content={socialImage} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={url} />
+        <meta property="twitter:title" content={socialTitle} />
+        <meta property="twitter:description" content={socialDescription} />
+        <meta property="twitter:image" content={socialImage} />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container mx-auto p-2 lg:py-4 space-y-8 lg:space-y-20">
@@ -65,7 +87,9 @@ export default function Home(props) {
           <div className="mb-4 h-20">
             <img src="images/arrow-down.svg" alt="arrow down" className="h-full mx-auto" />
           </div>
-          <h2 className="text-center text-3xl xl:text-4xl font-medium mb-6 lg:mb-20 sm:px-32">Let’s realise your opportunities!</h2>
+          <h2 className="text-center text-3xl xl:text-4xl font-medium mb-6 lg:mb-20 sm:px-32">
+            Let’s realise your opportunities!
+          </h2>
           <div id="address-and-portrait" className="lg:flex lg:flex-wrap lg:px-20 lg:justify-center">
             <address className="my-4 md:mt-12 lg:mt-20 lg:pl-4 not-italic sm:px-16 lg:px-0 sm:text-center lg:text-left md:text-xl md:leading-relaxed lg:w-1/2 lg:self-start lg:order-2">
               <h4 className="md:text-2xl">
