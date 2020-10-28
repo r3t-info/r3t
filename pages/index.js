@@ -2,7 +2,7 @@ import Head from "next/head";
 import Client from "../components/client";
 import { getSortedClientsData } from "../lib/getSortedClientsData";
 
-const name = "R3T*";
+const name = "R3T";
 const url = "https://www.r3t.info/";
 const socialTitle = `${name} — Changing the delivery of digital strategies, management, and consulting.`;
 const socialImage = "images/r3t-social-image.png";
