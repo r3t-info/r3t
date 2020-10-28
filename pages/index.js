@@ -98,7 +98,7 @@ export default function Home(props) {
                   Chief Executive Officer <span className="text-gray-900">at</span> {name}
                 </p>
               </h4>
-              <a href="mailto:jens.ohlsson@ghostlabs.se">jens.ohlsson@r3t.info</a>
+              <a href="mailto:jens.ohlsson@real3t.se">jens.ohlsson@real3t.se</a>
               <br />
               <a href="tel:+46706445732">070-644 57 32</a>
               <br />
