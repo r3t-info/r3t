@@ -2,7 +2,7 @@ import Head from "next/head";
 import Client from "../components/client";
 import { getSortedClientsData } from "../lib/getSortedClientsData";
 
-const name = "R3T";
+const name = "R3T*";
 const url = "https://www.r3t.info/";
 const socialTitle = `${name} — Changing the delivery of digital strategies, management, and consulting.`;
 const socialImage = "images/r3t-social-image.png";
@@ -98,7 +98,7 @@ export default function Home(props) {
                   Chief Executive Officer <span className="text-gray-900">at</span> {name}
                 </p>
               </h4>
-              <a href="mailto:jens.ohlsson@r3t.info">jens.ohlsson@r3t.info</a>
+              <a href="mailto:jens.ohlsson@ghostlabs.se">jens.ohlsson@r3t.info</a>
               <br />
               <a href="tel:+46706445732">070-644 57 32</a>
               <br />
