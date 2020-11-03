@@ -40,7 +40,7 @@ export default function Home(props) {
       <div className="container mx-auto p-2 lg:py-4 space-y-8 lg:space-y-20">
         <header className="py-2 xl:py-4 px-1 bg-white rounded-md sm:px-16 md:px-20 lg:px-40 xl:px-56">
           <div className="w-56 sm:w-64">
-            <img src="images/logo/r3t-logo.svg" alt="logo" className="h-full" />
+            <img src="images/r3t-logo.svg" alt="logo" className="h-full" />
           </div>
           <h1 className="hidden text-6xl text-gray-900 font-bold tracking-tighter">{name}</h1>
         </header>
