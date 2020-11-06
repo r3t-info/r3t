@@ -21,25 +21,44 @@
     src: url(/fonts/munken-sans/MunkenSansWeb-Bold.woff2) format("woff2"),
       url(/fonts/munken-sans/MunkenSansWeb-Bold.woff) format("woff");
   }
-  h1, h2, h4, p, span, address, a {
-    @apply text-gray-900;
+  section, footer {
+    @apply px-2;
+  }
+  h2 {
+    @apply font-medium text-2xl;
+  }
+  h1,
+  h2,
+  h4,
+  p,
+  span,
+  a {
+    @apply text-dark;
+  }
+  address p, h4, a {
+    @apply text-white;
   }
   p {
-    @apply mb-4;
+    @apply pb-4;
   }
   h4 {
     @apply text-xl font-medium;
   }
-  #our-method p {
-    @apply text-2xl tracking-tight;
-  }
   a {
     @apply underline;
+  }
+  #logo-light path {
+    @apply fill-current text-primary;
+  }
+  #logo-dark path {
+    @apply fill-current text-secondary;
+  }
+  #analysis rect[fill="#6c63ff"], #analysis path[fill="#6c63ff"] {
+    @apply fill-current text-accent;
   }
   @screen lg {
     #our-method p {
       @apply tracking-normal leading-normal mb-6;
     }
-  }  
+  }
 }
-

@@ -1,131 +1,171 @@
+import React from "react";
 import Head from "next/head";
 import Client from "../components/client";
 import { getSortedClientsData } from "../lib/getSortedClientsData";
+import { getDataByFileName } from "../lib/getDataByFileName";
+import ReactMarkdown from "react-markdown";
+import R3tLogo from "../components/svgs/r3t-logo";
+import Analysis from "../components/svgs/analysis";
+import DataToAction from "../components/svgs/data-to-action";
 
-const name = "R3T";
-const url = "https://www.r3t.info/";
-const socialTitle = `${name} — Changing the delivery of digital strategies, management, and consulting.`;
-const socialImage = "images/r3t-social-image.png";
-const socialDescription =
-  "We are a digital services company changing the way digital strategies, management, and consulting are delivered. We work with the 3T method which is based on Swedish research.";
+export function Paragraph(props) {
+  return <p className="text-xl leading-snug">{props.children}</p>;
+}
 
-export default function Home(props) {
-  const allClientsAsCards = props.allClientsData.map((clientData) => {
+export function ClientsParagraph(props) {
+  return <p className="text-xl leading-snug text-center mx-auto w-48">{props.children}</p>;
+}
+
+export function ClientsList(props) {
+  return <ul className="text-xl font-medium space-y-3 leading-snug text-center pb-4">{props.children}</ul>;
+}
+
+export function Strong(props) {
+  return <strong className="font-medium">{props.children}</strong>;
+}
+
+export default function Home({
+  socialData,
+  introductionMainData,
+  introductionFootnoteData,
+  introductionClientsData,
+  ourMethodData,
+  clientsData,
+  contactData,
+}) {
+  const allClientsAsCards = clientsData.map((clientData) => {
     return <Client clientData={clientData} key={clientData.id}></Client>;
   });
 
   return (
     <>
       <Head>
-        <title>{socialTitle}</title>
+        <title>{socialData.socialTitle}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <meta name="title" content={socialTitle} />
-        <meta name="description" content={socialDescription} />
+        <meta name="title" content={socialData.socialTitle} />
+        <meta name="description" content={socialData.socialDescription} />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={url} />
-        <meta property="og:title" content={socialTitle} />
-        <meta property="og:description" content={socialDescription} />
-        <meta property="og:image" content={socialImage} />
+        <meta property="og:url" content={socialData.url} />
+        <meta property="og:title" content={socialData.socialTitle} />
+        <meta property="og:description" content={socialData.socialDescription} />
+        <meta property="og:image" content={socialData.socialImage} />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={url} />
-        <meta property="twitter:title" content={socialTitle} />
-        <meta property="twitter:description" content={socialDescription} />
-        <meta property="twitter:image" content={socialImage} />
+        <meta property="twitter:url" content={socialData.url} />
+        <meta property="twitter:title" content={socialData.socialTitle} />
+        <meta property="twitter:description" content={socialData.socialDescription} />
+        <meta property="twitter:image" content={socialData.socialImage} />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="container mx-auto p-2 lg:py-4 space-y-8 lg:space-y-20">
-        <header className="py-2 xl:py-4 px-1 bg-white rounded-md sm:px-16 md:px-20 lg:px-40 xl:px-56">
-          <div className="w-56 sm:w-64">
-            <img src="images/r3t-logo.svg" alt="logo" className="h-full" />
+      <header className="px-2 pt-6 pb-8 bg-light">
+        <div className="h-16">
+          <R3tLogo className="h-full mx-auto" />
+        </div>
+      </header>
+      <main>
+        <section id="who-we-are" className="bg-light pb-4">
+          <ReactMarkdown
+            source={introductionMainData.contentHtml}
+            renderers={{
+              strong: Strong,
+              paragraph: Paragraph,
+            }}
+          />
+          <div className="w-full py-4">
+            <Analysis className="w-10/12 mx-auto" />
           </div>
-          <h1 className="hidden text-6xl text-gray-900 font-bold tracking-tighter">{name}</h1>
-        </header>
+          <ReactMarkdown
+            source={introductionFootnoteData.contentHtml}
+            renderers={{
+              strong: Strong,
+              paragraph: Paragraph,
+            }}
+          />
+          <div className="w-10/12 mx-auto border-t-4 border-accent mt-4 mb-8"></div>
+          <ReactMarkdown
+            source={introductionClientsData.contentHtml}
+            renderers={{
+              strong: Strong,
+              paragraph: ClientsParagraph,
+              list: ClientsList,
+            }}
+          />
+        </section>
+        <section
+          id="our-clients"
+          className="bg-secondary py-10 space-y-10 px-4"
+        >
+          {allClientsAsCards}
+        </section>
+        <section id="our-method" className="bg-light py-8">
+        <div className="pb-8 px-1">
+          <DataToAction />
+          </div>
+          <ReactMarkdown
+            source={ourMethodData.contentHtml}
+            skipHtml
+            renderers={{ strong: Strong, paragraph: Paragraph }}
+          />
+        </section>
+      </main>
 
-        <main className="space-y-10 lg:space-y-20">
-          <section id="who-we-are" className="sm:px-16 md:px-20 lg:px-48 xl:px-56">
-            <p className="text-2xl font-medium tracking-tight lg:tracking-normal lg:leading-normal">
-              We are a digital services company changing the way digital strategies, management, and consulting are
-              delivered. We work with the 3T method which is based on Swedish research.*
-            </p>
-            <p className="pl-0 md:w-3/4 md:ml-auto xl:w-3/5 xl:text-lg">
-              *A 9-year collaboration between 40+ companies and public organisations, together with researchers from
-              Stockholm University and KTH/Royal Institute of Technology.
-            </p>
-          </section>
-          <section id="3t-border">
-            <div className="h-4 sm:h-6 bg-teal-300 rounded-md flex justify-around sm:justify-evenly">
-              <div className="bg-white w-8 md:w-6 h-full"></div>
-              <div className="bg-white w-8 md:w-6 h-full"></div>
-              <div className="bg-white w-8 md:w-6 h-full"></div>
-            </div>
-          </section>
-          <section id="our-method" className="sm:px-16 md:px-20 lg:px-48 xl:px-56">
-            <p>
-              <span className="font-medium">The 3T method</span> begins by scouting the most committed decision makers
-              and domain experts in your organisation.
-            </p>
-            <p>
-              Together we define opportunities such as improving your business strategies or creating new digitised
-              products or services.
-            </p>
-            <p>Then we implement these opportunities through iterations via rapid prototyping with weekly dialogues.</p>
-            <p>
-              What makes us different is our scientifically-designed integration tools which guarantee sustainable and
-              scalable solutions.
-            </p>
-          </section>
-          <section
-            id="our-clients"
-            className="space-y-5 sm:space-y-8 lg:space-y-0 sm:px-32 md:px-48 lg:px-0 lg:flex lg:flex-row lg:flex-wrap lg:justify-center"
-          >
-            {allClientsAsCards}
-          </section>
-        </main>
-
-        <footer id="contact">
-          <div className="mb-4 h-20">
-            <img src="images/arrow-down.svg" alt="arrow down" className="h-full mx-auto" />
+      <footer id="contact" className="bg-secondary py-8">
+        <div className="mb-4 h-20">
+          <img src="images/arrow-down.svg" alt="arrow down" className="h-full mx-auto" />
+        </div>
+        <h2 className="text-center text-primary text-3xl xl:text-4xl font-medium mb-6 lg:mb-20 sm:px-32">
+          {contactData.callToAction}
+        </h2>
+        <div id="address-and-portrait" className="lg:flex lg:flex-wrap lg:px-20 lg:justify-center">
+          <address className="my-4 md:mt-12 lg:mt-20 lg:pl-4 not-italic sm:px-16 lg:px-0 sm:text-center lg:text-left md:text-xl md:leading-relaxed lg:w-1/2 lg:self-start lg:order-2">
+            <h4 className="md:text-2xl">
+              {contactData.name}
+              <p className="text-lg md:text-xl text-gray-500 font-normal tracking-tight leading-tight">
+                {contactData.position} <span className="text-gray-200">at</span> {socialData.name}
+              </p>
+            </h4>
+            <a href={`mailto:${contactData.email}`}>{contactData.email}</a>
+            <br />
+            <a href={`tel:${contactData.phoneAsLink}`}>{contactData.phoneAsText}</a>
+            <br />
+            <br />
+            <a href={contactData.linkedInUrl} target="_blank" rel="noopener noreferrer">
+              {socialData.name} LinkedIn
+            </a>
+          </address>
+          <div className="mt-4 sm:mt-8 mb-2 lg:mb-10 sm:px-32 md:px-40 lg:px-0 lg:pr-4 xl:pl-24 lg:w-1/2 lg:order-1">
+            <img
+              src={contactData.portraitUrl}
+              alt={contactData.name}
+              className="rounded-xl sm:rounded-2xl lg:mx-auto"
+            />
           </div>
-          <h2 className="text-center text-3xl xl:text-4xl font-medium mb-6 lg:mb-20 sm:px-32">
-            Let’s realise your opportunities!
-          </h2>
-          <div id="address-and-portrait" className="lg:flex lg:flex-wrap lg:px-20 lg:justify-center">
-            <address className="my-4 md:mt-12 lg:mt-20 lg:pl-4 not-italic sm:px-16 lg:px-0 sm:text-center lg:text-left md:text-xl md:leading-relaxed lg:w-1/2 lg:self-start lg:order-2">
-              <h4 className="md:text-2xl">
-                Jens Ohlsson
-                <p className="text-lg md:text-xl text-gray-600 font-normal tracking-tight leading-tight">
-                  Chief Executive Officer <span className="text-gray-900">at</span> {name}
-                </p>
-              </h4>
-              <a href="mailto:jens.ohlsson@r3t.info">jens.ohlsson@r3t.info</a>
-              <br />
-              <a href="tel:+46706445732">070-644 57 32</a>
-              <br />
-              <br />
-              <a href="https://www.linkedin.com/company/realtreat-ab/" target="_blank" rel="noopener noreferrer">
-                {name} LinkedIn
-              </a>
-            </address>
-            <div className="mt-4 sm:mt-8 mb-2 lg:mb-10 sm:px-32 md:px-40 lg:px-0 lg:pr-4 xl:pl-24 lg:w-1/2 lg:order-1">
-              <img src="images/jens-ohlsson.jpg" alt="Jens Ohlsson" className="rounded-xl sm:rounded-2xl lg:mx-auto" />
-            </div>
-          </div>
-          <div className="h-4 sm:h-6 bg-teal-300 rounded-md sm:rounded-lg sm:mx-32 md:mx-40 lg:mx-0"></div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </>
   );
 }
 
 export async function getStaticProps() {
-  const allClientsData = getSortedClientsData();
+  const clientsData = await getSortedClientsData();
+  const socialData = await getDataByFileName("social");
+  const introductionMainData = await getDataByFileName("introduction-main");
+  const introductionFootnoteData = await getDataByFileName("introduction-footnote");
+  const introductionClientsData = await getDataByFileName("introduction-clients");
+  const ourMethodData = await getDataByFileName("our-method");
+  const contactData = await getDataByFileName("contact");
   return {
     props: {
-      allClientsData,
+      socialData,
+      introductionMainData,
+      introductionFootnoteData,
+      introductionClientsData,
+      ourMethodData,
+      clientsData,
+      contactData,
     },
   };
 }

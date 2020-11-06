@@ -1,4 +1,3 @@
-const { colors } = require("tailwindcss/defaultTheme");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -13,6 +12,14 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Munken Sans", ...defaultTheme.fontFamily.sans],
+        system: [...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        "primary": "#FF9500",
+        "secondary": "#2A4365",
+        "accent": "#287343",
+        "dark": "#1A202C",
+        "light": "#FFFAF0",
       }
     },
   },
