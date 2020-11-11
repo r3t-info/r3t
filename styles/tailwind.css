@@ -21,7 +21,7 @@
     src: url(/fonts/munken-sans/MunkenSansWeb-Bold.woff2) format("woff2"),
       url(/fonts/munken-sans/MunkenSansWeb-Bold.woff) format("woff");
   }
-  section, footer {
+  section {
     @apply px-2;
   }
   h2 {
@@ -33,13 +33,18 @@
   p,
   span,
   a {
-    @apply text-dark;
+    @apply text-gray-900;
   }
-  address p, h4, a {
+  address p,
+  address h4,
+  address a {
     @apply text-white;
   }
   p {
     @apply pb-4;
+  }
+  #our-method p {
+    @apply pb-8 text-center;
   }
   h4 {
     @apply text-xl font-medium;
@@ -47,13 +52,8 @@
   a {
     @apply underline;
   }
-  #logo-light path {
-    @apply fill-current text-primary;
-  }
-  #logo-dark path {
-    @apply fill-current text-secondary;
-  }
-  #analysis rect[fill="#6c63ff"], #analysis path[fill="#6c63ff"] {
+  #analysis rect[fill="#6c63ff"],
+  #analysis path[fill="#6c63ff"] {
     @apply fill-current text-accent;
   }
   @screen lg {

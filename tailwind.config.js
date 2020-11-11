@@ -15,12 +15,15 @@ module.exports = {
         system: [...defaultTheme.fontFamily.sans],
       },
       colors: {
-        "primary": "#FF9500",
-        "secondary": "#2A4365",
-        "accent": "#287343",
-        "dark": "#1A202C",
-        "light": "#FFFAF0",
-      }
+        primary: "#FF5500",
+        secondary: "#1D694E",
+        accent: "#64C3B8",
+        dark: "#052962",
+        light: "#FFFAF0",
+      },
+      borderWidth: {
+        3: "3px",
+      },
     },
   },
   variants: {},
