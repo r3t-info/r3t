@@ -70,8 +70,8 @@ export default function Home({
           <R3tLogo className="h-full fill-current text-white" />
         </div>
       </header>
-      <div className="w-full">
-        <Direction className="fill-current text-dark bg-light" />
+      <div className="w-full bg-light">
+        <Direction className="fill-current text-dark" />
       </div>
       <main>
         <section id="who-we-are" className="bg-light pt-6 pb-4">
@@ -94,8 +94,8 @@ export default function Home({
             }}
           />
         </section>
-        <div className="w-full">
-          <Direction className="fill-current text-light bg-dark" />
+        <div className="w-full bg-dark">
+          <Direction className="fill-current text-light" />
         </div>
         <section id="our-clients" className="bg-dark px-4 pt-6 pb-12">
           <h2 className="text-primary uppercase font-bold text-center pt-3 pb-5">Our clients</h2>
@@ -110,8 +110,8 @@ export default function Home({
           />
           <div className="space-y-10">{allClientsAsCards}</div>
         </section>
-        <div className="w-full">
-          <Direction className="fill-current text-dark bg-light" />
+        <div className="w-full bg-light">
+          <Direction className="fill-current text-dark" />
         </div>
         <section id="our-method" className="bg-light pt-6 pb-8">
           <h2 className="text-secondary uppercase font-bold text-center pt-2 pb-4">Our Method</h2>
@@ -125,8 +125,8 @@ export default function Home({
           </div>
         </section>
       </main>
-      <div className="w-full">
-        <Direction className="fill-current text-light bg-dark" />
+      <div className="w-full bg-dark">
+        <Direction className="fill-current text-light" />
       </div>
       <footer id="contact" className="bg-dark px-4 pt-8 pb-2">
         <h2 className="text-center text-primary text-3xl xl:text-4xl font-medium mb-6 lg:mb-20 sm:px-32">
