@@ -25,10 +25,9 @@
     @apply px-2;
   }
   h2 {
-    @apply font-medium text-2xl;
+    @apply text-2xl text-center font-bold uppercase;
   }
   h1,
-  h2,
   h4,
   p,
   span,
@@ -52,9 +51,25 @@
   a {
     @apply underline;
   }
+  a:hover {
+    @apply text-accent no-underline;
+  }
   #analysis rect[fill="#6c63ff"],
   #analysis path[fill="#6c63ff"] {
     @apply fill-current text-accent;
+  }
+  @screen sm {
+    h2 {
+      @apply text-3xl;
+    }
+    a {
+      @apply text-lg;
+    }
+  }
+  @screen md {
+    #our-method p {
+      @apply pb-10;
+    }
   }
   @screen lg {
     #our-method p {

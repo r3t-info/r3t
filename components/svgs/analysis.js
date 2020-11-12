@@ -5,7 +5,6 @@ export default function Analysis(props) {
   return (
     <svg
       id="analysis"
-      data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1171 834.6893"
       className={props.className}
