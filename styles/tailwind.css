@@ -58,6 +58,12 @@
   #analysis path[fill="#6c63ff"] {
     @apply fill-current text-accent;
   }
+  .direction-light path[fill="mask"] {
+    @apply fill-current stroke-current text-dark;
+  }
+  .direction-dark path[fill="mask"] {
+    @apply fill-current stroke-current text-light;
+  }
   @screen sm {
     h2 {
       @apply text-3xl;

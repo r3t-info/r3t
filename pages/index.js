@@ -70,9 +70,9 @@ export default function Home({
           <R3tLogo className="h-full mx-auto fill-current text-white" />
         </div>
       </header>
-      <div className="w-full bg-light">
-        <Direction className="fill-current text-dark" />
-      </div>
+      <div className="w-full bg-dark">
+        <Direction className="fill-current stroke-current text-dark" />
+      </div>      
       <main>
         <section id="who-we-are" className="bg-light pt-6 pb-4 md:pt-8 md:pb-6">
           <h2 className="text-secondary pt-2 pb-4">About us</h2>
@@ -94,7 +94,7 @@ export default function Home({
               }}
             />
         </section>
-        <div className="w-full bg-dark">
+        <div className="w-full bg-light">
           <Direction className="fill-current text-light" />
         </div>
         <section id="our-clients" className="bg-dark px-4 pt-6 pb-12 md:pt-8">
