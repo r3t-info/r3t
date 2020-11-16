@@ -70,10 +70,10 @@ export default function Home({
           <R3tLogo className="h-full mx-auto fill-current text-white" />
         </div>
       </header>
-      <div className="w-full bg-dark">
-        <Direction className="fill-current stroke-current text-dark" />
-      </div>      
       <main>
+        <div className="w-full">
+          <Direction className="dark-arrow" />
+        </div>
         <section id="who-we-are" className="bg-light pt-6 pb-4 md:pt-8 md:pb-6">
           <h2 className="text-secondary pt-2 pb-4">About us</h2>
           <ReactMarkdown
@@ -86,16 +86,16 @@ export default function Home({
           <div className="max-w-xs sm:max-w-sm mx-auto py-4 md:py-8 lg:pt-6 lg:pb-9">
             <Analysis className="w-full" />
           </div>
-            <ReactMarkdown
-              source={introductionFootnoteData.contentHtml}
-              renderers={{
-                strong: Strong,
-                paragraph: Paragraph,
-              }}
-            />
+          <ReactMarkdown
+            source={introductionFootnoteData.contentHtml}
+            renderers={{
+              strong: Strong,
+              paragraph: Paragraph,
+            }}
+          />
         </section>
-        <div className="w-full bg-light">
-          <Direction className="fill-current text-light" />
+        <div className="w-full">
+          <Direction className="light-arrow" />
         </div>
         <section id="our-clients" className="bg-dark px-4 pt-6 pb-12 md:pt-8">
           <h2 className="text-primary pt-3 pb-5">Our clients</h2>
@@ -108,10 +108,12 @@ export default function Home({
             }}
             className="mb-5"
           />
-          <div className="space-y-10 lg:space-y-0 sm:flex sm:flex-wrap sm:justify-center xl:max-w-screen-lg xl:mx-auto">{allClientsAsCards}</div>
+          <div className="space-y-10 lg:space-y-0 sm:flex sm:flex-wrap sm:justify-center xl:max-w-screen-lg xl:mx-auto">
+            {allClientsAsCards}
+          </div>
         </section>
-        <div className="w-full bg-light">
-          <Direction className="fill-current text-dark" />
+        <div className="w-full">
+          <Direction className="dark-arrow" />
         </div>
         <section id="our-method" className="bg-light pt-6 pb-8 md:pt-8">
           <h2 className="text-secondary pt-2 pb-4 md:pb-6">Our Method</h2>
@@ -124,17 +126,17 @@ export default function Home({
             <DataToAction />
           </div>
         </section>
+
+        <div className="w-full">
+          <Direction className="light-arrow" />
+        </div>
       </main>
-      <div className="w-full bg-dark">
-        <Direction className="fill-current text-light" />
-      </div>
       <footer id="contact" className="bg-dark px-4 pt-8 pb-2 md:pt-10">
         <h2 className="text-primary text-3xl xl:text-4xl max-w-sm lg:max-w-md mx-auto font-medium normal-case leading-tight mb-6 lg:mb-8">
           {contactData.callToAction}
         </h2>
-        
+
         <div id="address-and-portrait" className="flex flex-wrap justify-center lg:justify-center">
-          
           <address className="my-4 md:mt-10 lg:mt-20 w-full lg:w-1/2 lg:pl-4 flex-grow-0 not-italic md:text-xl md:leading-relaxed text-center lg:text-left lg:order-2">
             <h4 className="sm:text-2xl">
               {contactData.name}
@@ -151,7 +153,7 @@ export default function Home({
               {socialData.name} LinkedIn
             </a>
           </address>
-          
+
           <div className="mt-4 sm:mt-8 mb-2 lg:mb-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-full lg:w-1/2 lg:order-1 lg:pr-4">
             <img
               src={contactData.portraitUrl}
@@ -159,11 +161,10 @@ export default function Home({
               className="rounded-lg sm:rounded-2xl lg:rounded-xl w-full lg:max-w-md lg:ml-auto"
             />
           </div>
-
         </div>
         <div className="w-3/12 sm:w-3/12 md:w-2/12 lg:w-full lg:order-3 mx-auto mt-5 mb-4">
-            <R3tLogo className="h-full mx-auto lg:h-16 fill-current text-white" />
-          </div>
+          <R3tLogo className="h-full mx-auto lg:h-16 fill-current text-white" />
+        </div>
       </footer>
     </>
   );
