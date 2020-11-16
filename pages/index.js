@@ -72,7 +72,7 @@ export default function Home({
       </header>
       <main>
         <div className="w-full">
-          <Direction className="dark-arrow" />
+          <Direction className="dark-arrow h-full" />
         </div>
         <section id="who-we-are" className="bg-light pt-6 pb-4 md:pt-8 md:pb-6">
           <h2 className="text-secondary pt-2 pb-4">About us</h2>
