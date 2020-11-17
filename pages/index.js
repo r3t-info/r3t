@@ -8,6 +8,7 @@ import R3tLogo from "../components/svgs/r3t-logo";
 import Analysis from "../components/svgs/analysis";
 import DataToAction from "../components/svgs/data-to-action";
 import Direction from "../components/svgs/border/direction";
+import Icons from "../components/svgs/icons/icons";
 
 export function Paragraph(props) {
   return <p className="text-xl leading-snug sm:w-9/12 md:w-8/12 lg:max-w-xl mx-auto">{props.children}</p>;
@@ -26,7 +27,7 @@ export function Strong(props) {
 }
 
 export function Icon(props) {
-  return <img src={props.src} alt={props.alt} className="h-10 mx-auto mb-2" />;
+  return <Icons className="h-10 mx-auto mb-2 stroke-current text-primary" title={props.alt} />
 }
 
 export default function Home({
@@ -140,7 +141,7 @@ export default function Home({
           <address className="my-4 md:mt-10 lg:mt-20 w-full lg:w-1/2 lg:pl-4 flex-grow-0 not-italic md:text-xl md:leading-relaxed text-center lg:text-left lg:order-2">
             <h4 className="sm:text-2xl">
               {contactData.name}
-              <p className="text-lg sm:text-xl text-gray-500 font-normal tracking-tight leading-tight">
+              <p className="text-lg sm:text-xl text-gray-400 font-normal tracking-tight leading-tight">
                 {contactData.position} at {socialData.name}
               </p>
             </h4>
