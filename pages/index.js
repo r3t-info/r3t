@@ -109,7 +109,7 @@ export default function Home({
             }}
             className="mb-5"
           />
-          <div className="space-y-10 lg:space-y-0 sm:flex sm:flex-wrap sm:justify-center xl:max-w-screen-lg xl:mx-auto">
+          <div className="space-y-10 lg:space-y-0 sm:flex sm:flex-wrap sm:justify-center xl:max-w-screen-xl xl:mx-auto">
             {allClientsAsCards}
           </div>
         </section>
