@@ -66,6 +66,12 @@ module.exports = {
       borderWidth: {
         3: "3px",
       },
+      backgroundImage: (theme) => ({
+        "who-we-are": "url('/images/who-we-are.jpg')",
+      }),
+      backgroundOpacity: {
+        85: "0.85",
+      },
     },
   },
   variants: {},

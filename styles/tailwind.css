@@ -24,6 +24,9 @@
   section {
     @apply px-2;
   }
+  section#who-we-are {
+    @apply px-0;
+  }
   h2 {
     @apply text-2xl text-center font-bold uppercase tracking-tight;
   }

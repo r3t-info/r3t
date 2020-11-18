@@ -20,15 +20,15 @@ export default function Direction(props) {
       className={classNames}
       preserveAspectRatio="none"
     >
-      {/* <g className="fill-bg stroke-bg">
+      <g className="fill-bg stroke-bg">
         <path stroke="inherit" strokeWidth="5" strokeMiterlimit="5" d="M.1 126.9V.1l1308.3 126.8z" />
         <path stroke="inherit" strokeWidth="5" strokeMiterlimit="5" d="M.2.3l1305.6 126.5H.2V.3M0 0v127h1311L0 0z" />
         <g>
           <path fill="inherit" d="M1313.6 126.9L2621.9.1v126.8z" />
           <path fill="inherit" d="M2621.8.3v126.5H1316.2L2621.8.3m.2-.3L1311 127h1311V0z" />
         </g>
-      </g> */}
-      <g className="fill-arrow stroke-arrow">
+      </g>
+      {/* <g className="fill-arrow stroke-arrow">
         <path fill="inherit" d="M2.6.1h2616.8L1311 126.9z" />
         <path
           stroke="inherit"
@@ -36,7 +36,7 @@ export default function Direction(props) {
           strokeMiterlimit="5"
           d="M2616.8.2L1311 126.8 5.2.2h2611.6m5.2-.2H0l1311 127L2622 0z"
         />
-      </g>
+      </g> */}
     </svg>
   );
 

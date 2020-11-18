@@ -8,10 +8,15 @@ import R3tLogo from "../components/svgs/r3t-logo";
 import Analysis from "../components/svgs/analysis";
 import DataToAction from "../components/svgs/data-to-action";
 import Direction from "../components/svgs/border/direction";
+import DirectionWhoWeAre from "../components/svgs/border/direction-who-we-are";
 import Icons from "../components/svgs/icons/icons";
 
 export function Paragraph(props) {
   return <p className="text-xl leading-snug sm:w-9/12 md:w-8/12 lg:max-w-xl mx-auto">{props.children}</p>;
+}
+
+export function ParagraphWhoWeAre(props) {
+  return <p className="text-xl leading-snug sm:w-9/12 md:w-8/12 lg:w-full lg:px-6 lg:max-w-xl mx-auto">{props.children}</p>;
 }
 
 export function ClientsParagraph(props) {
@@ -27,7 +32,7 @@ export function Strong(props) {
 }
 
 export function Icon(props) {
-  return <Icons className="h-10 mx-auto mb-2 stroke-current text-primary" title={props.alt} />
+  return <Icons className="h-10 mx-auto mb-2 stroke-current text-primary" title={props.alt} />;
 }
 
 export default function Home({
@@ -71,33 +76,37 @@ export default function Home({
           <R3tLogo className="h-full mx-auto fill-current text-white" />
         </div>
       </header>
+
       <main>
-        <div className="w-full">
-          <Direction className="dark-arrow h-full" />
-        </div>
-        <section id="who-we-are" className="bg-light pt-6 pb-4 md:pt-8 md:pb-6">
-          <h2 className="text-secondary pt-2 pb-4">About us</h2>
-          <ReactMarkdown
-            source={introductionMainData.contentHtml}
-            renderers={{
-              strong: Strong,
-              paragraph: Paragraph,
-            }}
-          />
-          <div className="max-w-xs sm:max-w-sm mx-auto py-4 md:py-8 lg:pt-6 lg:pb-9">
-            <Analysis className="w-full" />
+        <section id="who-we-are" className="bg-who-we-are bg-cover bg-left pt-6 pb-4 md:pt-0 md:pb-0">
+          <div className="w-full">
+            <Direction className="dark-arrow h-full" />
           </div>
-          <ReactMarkdown
-            source={introductionFootnoteData.contentHtml}
-            renderers={{
-              strong: Strong,
-              paragraph: Paragraph,
-            }}
-          />
+          <div className="flex flex-row justify-center">
+            <div className="bg-gray-200 inline-block bg-opacity-85 rounded-lg mt-20">
+              <h2 className="text-secondary pt-4 pb-4">About us</h2>
+
+              <ReactMarkdown
+                source={introductionMainData.contentHtml}
+                renderers={{
+                  strong: Strong,
+                  paragraph: ParagraphWhoWeAre,
+                }}
+              />
+              <ReactMarkdown
+                source={introductionFootnoteData.contentHtml}
+                renderers={{
+                  strong: Strong,
+                  paragraph: ParagraphWhoWeAre,
+                }}
+              />
+            </div>
+          </div>
+          <div className="w-full pt-20">
+            <DirectionWhoWeAre className="light-arrow" />
+          </div>
         </section>
-        <div className="w-full">
-          <Direction className="light-arrow" />
-        </div>
+
         <section id="our-clients" className="bg-dark px-4 pt-6 pb-12 md:pt-8">
           <h2 className="text-primary pt-3 pb-5">Our clients</h2>
           <ReactMarkdown
