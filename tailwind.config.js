@@ -62,6 +62,12 @@ module.exports = {
         accent: "#FFB8FF",
         dark: "#24A5B0",
         light: "#FCFCFC",
+        // Petra 3
+        primary: "#991692",
+        secondary: "#016287",
+        accent: "#FFB8FF",
+        dark: "#219DA8",
+        light: "#FCFCFC",
       },
       borderWidth: {
         3: "3px",

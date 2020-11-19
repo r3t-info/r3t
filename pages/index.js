@@ -39,7 +39,7 @@ export function Icon(props) {
 export default function Home({
   socialData,
   introductionData,
-  introductionClientsData,
+  ourClientsIntroductionData,
   ourMethodData,
   clientsData,
   contactData,
@@ -100,7 +100,7 @@ export default function Home({
         <section id="our-clients" className="bg-dark pb-12">
           <h2 className="text-primary pt-8 sm:pt-12 xl:pt-24 mb-5 xl:mb-8">Our Clients</h2>
           <ReactMarkdown
-            source={introductionClientsData.contentHtml}
+            source={ourClientsIntroductionData.contentHtml}
             renderers={{
               strong: Strong,
               paragraph: ClientsParagraph,
@@ -174,14 +174,14 @@ export async function getStaticProps() {
   const clientsData = await getSortedClientsData();
   const socialData = await getDataByFileName("social");
   const introductionData = await getDataByFileName("introduction");
-  const introductionClientsData = await getDataByFileName("introduction-clients");
+  const ourClientsIntroductionData = await getDataByFileName("our-clients");
   const ourMethodData = await getDataByFileName("our-method");
   const contactData = await getDataByFileName("contact");
   return {
     props: {
       socialData,
       introductionData,
-      introductionClientsData,
+      ourClientsIntroductionData,
       ourMethodData,
       clientsData,
       contactData,
