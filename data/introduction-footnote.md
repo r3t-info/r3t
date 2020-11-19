@@ -1,1 +1,0 @@
-The **3T method** is a culmination of nearly a decade of collaborations between 40 companies and organizations with researchers from Stockholm University and KTH Royal Institute of Technology.

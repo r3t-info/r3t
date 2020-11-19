@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function Direction(props) {
+export default function DirectionMask(props) {
   const [classNames, setClassNames] = useState("");
 
   useEffect(() => {
