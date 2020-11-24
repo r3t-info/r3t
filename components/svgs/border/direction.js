@@ -12,8 +12,6 @@ export default function Direction(props) {
     }
   }, []);
 
-
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +20,7 @@ export default function Direction(props) {
       className={classNames}
       preserveAspectRatio="none"
     >
-      <g className="fill-arrow stroke-arrow">
+      <g className="fill-arrow">
         <path fill="inherit" d="M5.2.1h2611.6L1311 63.4z" />
         <path
           stroke="inherit"

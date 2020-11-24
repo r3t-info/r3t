@@ -15,16 +15,16 @@ export function IntroductionParagraph(props) {
 }
 
 export function ClientsParagraph(props) {
-  return <p className="text-xl leading-tight lg:leading-snug mx-auto text-center w-48">{props.children}</p>;
+  return <p className="text-white text-xl leading-tight lg:leading-snug mx-auto text-center w-48">{props.children}</p>;
 }
 
 export function ClientsList(props) {
-  return <ul className="text-xl font-medium leading-normal text-center pb-4">{props.children}</ul>;
+  return <ul className="text-white text-xl font-medium leading-normal text-center pb-4">{props.children}</ul>;
 }
 
 export function OurMethodParagraph(props) {
   return (
-    <p className="text-white text-xl leading-snug text-center lg:max-w-sm lg:mx-10 xl:mx-5 xl:w-1/4">
+    <p className="text-xl leading-snug text-center lg:max-w-sm lg:mx-10 xl:mx-5 xl:w-1/4">
       {props.children}
     </p>
   );
@@ -35,7 +35,7 @@ export function Strong(props) {
 }
 
 export function Icon(props) {
-  return <Icons className="h-10 xl:h-12 mx-auto mb-2 xl:mb-6 stroke-current text-title" title={props.alt} />;
+  return <Icons className="h-10 xl:h-12 mx-auto mb-2 xl:mb-6 stroke-current text-primary" title={props.alt} />;
 }
 
 export default function Home({
@@ -73,7 +73,7 @@ export default function Home({
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="px-2 pt-4 pb-3 sm:pt-6 xl:pt-8 lg:pb-0 bg-light">
+      <header className="px-2 pt-4 pb-3 sm:pt-6 xl:pt-8 lg:pb-0 bg-lighter">
         <div className="h-16 sm:h-20">
           <R3tLogo className="h-full mx-auto fill-current text-primary" />
         </div>
@@ -101,7 +101,7 @@ export default function Home({
             <DirectionMask className="dark-arrow" />
           </div>
         </section>
-        <section id="our-clients" className="bg-light pb-12">
+        <section id="our-clients" className="bg-dark pb-12">
           <h2 className="text-title pt-8 sm:pt-12 xl:pt-24 mb-5 xl:mb-8">Our Clients</h2>
           <ReactMarkdown
             source={ourClientsIntroductionData.contentHtml}
@@ -116,11 +116,11 @@ export default function Home({
             {allClientsAsCards}
           </div>
         </section>
-        <section id="our-method" className="bg-dark">
+        <section id="our-method" className="bg-light">
           <div className="w-full">
-            <Direction className="light-arrow" />
+            <Direction className="dark-arrow" />
           </div>
-          <h2 className="text-white pt-8 sm:pt-12 pb-4 md:pb-6 lg:pt-16 lg:pb-12 xl:pt-24 xl:mb-8">Our Method</h2>
+          <h2 className="text-secondary pt-8 sm:pt-12 pb-4 md:pb-6 lg:pt-16 lg:pb-12 xl:pt-24 xl:mb-8">Our Method</h2>
           <div className="px-4 sm:px-0 max-w-sm mx-auto lg:mx-10 lg:max-w-full lg:flex lg:flex-row lg:flex-wrap lg:justify-evenly xl:justify-evenly">
             <ReactMarkdown
               source={ourMethodData.contentHtml}
@@ -129,14 +129,14 @@ export default function Home({
             />
           </div>
           <div className="pt-4 pb-2 px-2 max-w-sm mx-auto sm:w-7/12 sm:pb-1 md:pt-6 lg:pt-2 lg:max-w-sm">
-            <DataToAction />
+            <DataToAction colorValue={"text-black"}/>
           </div>
           <div className="w-full pt-8">
-            <DirectionMask className="dark-arrow" />
+            <DirectionMask className="light-arrow" />
           </div>
         </section>
       </main>
-      <footer id="contact" className="bg-light px-4 pb-2">
+      <footer id="contact" className="bg-dark px-4 pb-2">
         <h2 className="text-title text-3xl lg:text-4xl font-medium normal-case leading-tight pt-12 xl:pt-20 md:pt-16 max-w-sm mx-auto mb-6 md:mb-3 lg:mb-8 xl:mb-12 xl:font-bold">
           {contactData.callToAction}
         </h2>
@@ -145,7 +145,7 @@ export default function Home({
           <address className="my-4 md:mt-10 lg:mt-20 w-full lg:w-1/2 lg:pl-4 xl:pl-12 flex-grow-0 not-italic md:text-xl md:leading-relaxed text-center lg:text-left lg:order-2">
             <h4 className="sm:text-2xl xl:text-3xl">
               {contactData.name}
-              <p className="text-lg sm:text-xl text-gray-700 font-normal tracking-tight leading-tight">
+              <p className="text-lg sm:text-xl text-gray-400 font-normal tracking-tight leading-tight">
                 {contactData.position} at {socialData.name}
               </p>
             </h4>
@@ -167,7 +167,7 @@ export default function Home({
           </div>
         </div>
         <div className="w-32 sm:w-40 lg:w-full mx-auto mt-5 mb-6 lg:mt-2 lg:mb-10">
-          <R3tLogo className="h-full mx-auto lg:h-16 fill-current text-primary" />
+          <R3tLogo className="h-full mx-auto lg:h-16 fill-current text-white" backgroundIsDark={true} />
         </div>
       </footer>
     </>

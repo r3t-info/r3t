@@ -7,14 +7,15 @@ export default function DataToAction(props) {
   const myPathRef = useRef(null);
   const [length, setLength] = useState(0);
   const [svgRef, inView] = useInView({ triggerOnce: false, rootMargin: "-150px 0px" });
-
+  
   useEffect(() => {
     setLength(myPathRef.current.getTotalLength());
   }, [myPathRef]);
 
+
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1367.15 1369.59" ref={svgRef} className="fill-current stroke-current text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1367.15 1369.59" ref={svgRef} className={`fill-current stroke-current ${props.colorValue}`}>
         <path
           d="M199.41 201.84c266.33-266.34 701.92-262.56 964.49 0 266.34 266.34 266.34 698.16 0 964.5s-698.16 266.33-964.49 0c-263.83-263.83-258.68-697.67.32-964.7"
           className="myPath"

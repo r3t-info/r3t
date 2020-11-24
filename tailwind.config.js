@@ -76,6 +76,14 @@ module.exports = {
         dark: "#880E4F",
         light: "#EFEBE9",
         lighter: "#FAFAFA",
+        // Classic
+        primary: "#F50057",
+        secondary: "#0D47A1",
+        accent: "#1565C0",
+        title: "#FFFFFF",
+        dark: "#E91E63",
+        light: "#EFEBE9",
+        lighter: "#FAFAFA",
       },
       borderWidth: {
         3: "3px",

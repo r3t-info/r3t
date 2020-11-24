@@ -34,7 +34,7 @@
   address p,
   address h4,
   address a {
-    @apply text-gray-900;
+    @apply text-gray-100;
   }
   p {
     @apply pb-4;
@@ -55,30 +55,16 @@
   #analysis path[fill="#6c63ff"] {
     @apply fill-current text-accent;
   }
-  .direction-dark .fill-arrow {
+  .direction-dark .fill-arrow, .direction-dark .fill-bg {
     @apply fill-current stroke-current text-dark;
   }
-  .direction-dark .stroke-arrow {
-    @apply stroke-current text-dark;
-  }
-  .direction-dark .fill-bg  {
-    @apply fill-current text-light;
-  }
-  .direction-dark .stroke-bg  {
-    @apply stroke-current text-light;
-  }
-  .direction-light .fill-arrow {
-    @apply fill-current stroke-current text-light;
-  }
-  .direction-light .stroke-arrow {
-    @apply stroke-current   text-light;
+  #who-we-are .direction-light .fill-arrow {
+    @apply fill-current stroke-current text-lighter;
   }
   .direction-light .fill-bg  {
-    @apply fill-current text-dark;
+    @apply fill-current stroke-current text-dark;
   }
-  .direction-light .stroke-bg  {
-    @apply stroke-current text-dark;
-  }
+  
   @screen sm {
     h2 {
       @apply text-3xl;
