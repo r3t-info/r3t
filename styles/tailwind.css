@@ -34,7 +34,7 @@
   address p,
   address h4,
   address a {
-    @apply text-white;
+    @apply text-gray-900;
   }
   p {
     @apply pb-4;

@@ -16,6 +16,25 @@ export default function DirectionMask(props) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       overflow="visible"
+      viewBox="0 0 2622 63.5"
+      className={classNames}
+      preserveAspectRatio="none"
+    >
+      <g className="fill-bg stroke-bg">
+        <path stroke="inherit" strokeWidth="5" strokeMiterlimit="5" d="M.1 63.4V.1l1305.7 63.3z" />
+        <path stroke="inherit" strokeWidth="5" strokeMiterlimit="5" d="M.2.3l1300.4 63H.2V.3M0 0v63.5h1311L0 0z" />
+        <g>
+          <path fill="inherit" d="M1316.2 63.4L2621.9.1v63.3z" />
+          <path fill="inherit" d="M2621.8.3v63H1321.3L2621.8.3m.2-.3L1311 63.5h1311V0z" />
+        </g>
+      </g>
+    </svg>
+  );
+
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      overflow="visible"
       viewBox="0 0 2622 127"
       className={classNames}
       preserveAspectRatio="none"
