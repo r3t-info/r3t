@@ -75,7 +75,7 @@ module.exports = {
 /*         title: "#E91E63", */
         dark: "#880E4F",
         light: "#EFEBE9",
-        lighter: "#FAFAFA",
+/*         lighter: "#FAFAFA", */
         // Classic
         primary: "#F50057",
         secondary: "#0D47A1",
@@ -83,7 +83,7 @@ module.exports = {
 /*         title: "#FFFFFF", */
         dark: "#E91E63",
         light: "#EFEBE9",
-        lighter: "#FAFAFA",
+/*         lighter: "#FAFAFA", */
         // Lighter
         primary: "#F50057",
         secondary: "#E91E63",
@@ -91,7 +91,6 @@ module.exports = {
         accent: "#E91E63",
         dark: "#FBE9E7",
         light: "#FFFAFA",
-        lighter: "#FAFAFA",
       },
       borderWidth: {
         3: "3px",
