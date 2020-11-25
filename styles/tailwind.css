@@ -34,7 +34,7 @@
   address p,
   address h4,
   address a {
-    @apply text-gray-100;
+    @apply text-gray-900;
   }
   p {
     @apply pb-4;
@@ -51,15 +51,11 @@
   a:hover {
     @apply text-accent no-underline;
   }
-  #analysis rect[fill="#6c63ff"],
-  #analysis path[fill="#6c63ff"] {
-    @apply fill-current text-accent;
-  }
   .direction-dark .fill-arrow, .direction-dark .fill-bg {
     @apply fill-current stroke-current text-dark;
   }
   #who-we-are .direction-light .fill-arrow {
-    @apply fill-current stroke-current text-lighter;
+    @apply fill-current stroke-current text-light;
   }
   .direction-light .fill-bg  {
     @apply fill-current stroke-current text-dark;

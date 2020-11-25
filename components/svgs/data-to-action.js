@@ -22,7 +22,7 @@ export default function DataToAction(props) {
           fill="none"
           stroke="inherit"
           strokeMiterlimit="10"
-          strokeWidth="7px"
+          strokeWidth="7"
           ref={myPathRef}
         />
         {<path className="head" d="M206.5 240.3l-7.7-.1.6-38-37.9 2.3-.5-7.7 46.2-2.7z"/>}
@@ -35,7 +35,7 @@ export default function DataToAction(props) {
           fill="none"
           stroke="inherit"
           strokeMiterlimit="10"
-          strokeWidth="7px"
+          strokeWidth="7"
           d="M299.15 428.59c0-70.75 56.81-128 127-128M938.55 300.64c70.75 0 128 56.8 128 127M426.55 1067.64c-70.75 0-128-56.81-128-127M1066.05 939.14c0 70.75-56.8 128-127 128"
         />
         <style jsx>{`
