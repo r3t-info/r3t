@@ -96,7 +96,7 @@ module.exports = {
         3: "3px",
       },
       backgroundImage: (theme) => ({
-        "who-we-are": "url('/images/who-we-are.jpg')",
+        "who-we-are": "url('/images/background/who-we-are.webp'), url('/images/background/who-we-are.jpg')",
       }),
       backgroundOpacity: {
         85: "0.85",
