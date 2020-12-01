@@ -9,7 +9,7 @@ export default function Client({ clientData }) {
     >
       <div id={`client-header-${clientData.id}`} className="w-full flex flex-row flex-nowrap pb-4">
         <div className="flex-shrink-0">
-          <img src={clientData.img} alt={clientData.name} className="h-auto w-20 sm:w-24 rounded-md shadow" />
+          <img src={process.env.NEXT_PUBLIC_R3T_CMS_HOST + clientData.image.url} alt={clientData.image.alternativeText} className="h-auto w-20 sm:w-24 rounded-md shadow" />
         </div>
         <div className="pl-3 flex-shrink">
           <h4>
@@ -22,7 +22,7 @@ export default function Client({ clientData }) {
       </div>
       <ReactMarkdown
         id={`client-body-${clientData.id}`}
-        source={clientData.contentHtml}
+        source={clientData.content}
         className="font-system text-lg w-full leading-snug sm:leading-normal lg:text-lg -mb-4"
       ></ReactMarkdown>
     </div>
