@@ -22,7 +22,9 @@ export function ClientsList(props) {
 }
 
 export function OurMethodParagraph(props) {
-  return <p className="text-xl leading-snug text-center lg:max-w-sm lg:mx-10 xl:mx-1 xl:px-3 xl:w-1/4">{props.children}</p>;
+  return (
+    <p className="text-xl leading-snug text-center lg:max-w-sm lg:mx-10 xl:mx-1 xl:px-3 xl:w-1/4">{props.children}</p>
+  );
 }
 
 export function Strong(props) {
@@ -34,11 +36,12 @@ export function Icon(props) {
 }
 
 export default function Home({ socialMediaData, introductionData, ourClientsData, ourMethodData, contactData }) {
-  const allClientsAsCards = ourClientsData.clients.map((clientData) => {
-    return <Client clientData={clientData} key={clientData.id}></Client>;
-  });
-
+  
   const r3tCMSUrl = process.env.NEXT_PUBLIC_R3T_CMS_HOST;
+
+  const allClientsAsCards = ourClientsData.clients.map((clientData) => {
+    return <Client clientData={clientData} key={clientData.id} r3tCMSUrl={r3tCMSUrl}></Client>;
+  });
 
   return (
     <>
@@ -151,11 +154,15 @@ export default function Home({ socialMediaData, introductionData, ourClientsData
             </a>
           </address>
           <div className="mt-4 sm:mt-8 mb-2 lg:mb-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-full lg:w-1/2 lg:order-1 lg:pr-4 xl:pr-12">
-            <img
-              src={r3tCMSUrl + contactData.portraitImage.url}
-              alt={contactData.portraitImage.alternativeText}
-              className="rounded-lg shadow sm:shadow-md w-full lg:max-w-md lg:ml-auto"
-            />
+            <picture>
+              <source srcSet={r3tCMSUrl + contactData.portraitImageWebP.url} type="image/webp" />
+              <source srcSet={r3tCMSUrl + contactData.portraitImageJPG.url} type="image/jpeg" />
+              <img
+                src={r3tCMSUrl + contactData.portraitImageJPG.url}
+                alt={contactData.portraitImageJPG.alternativeText}
+                className="rounded-lg shadow sm:shadow-md w-full lg:max-w-md lg:ml-auto"
+              />
+            </picture>
           </div>
         </div>
         <div className="w-32 sm:w-40 lg:w-full mx-auto mt-5 mb-6 lg:mt-2 lg:mb-10">
@@ -167,7 +174,6 @@ export default function Home({ socialMediaData, introductionData, ourClientsData
 }
 
 export async function getStaticProps() {
-
   const socialMediaData = await getData("social-media");
   const introductionData = await getData("introduction");
   const ourClientsData = await getData("our-clients");

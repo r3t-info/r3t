@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
 
-export default function Client({ clientData }) {
+export default function Client({ clientData, r3tCMSUrl }) {
+
   return (
     <div
       key={clientData.id}
@@ -9,7 +10,7 @@ export default function Client({ clientData }) {
     >
       <div id={`client-header-${clientData.id}`} className="w-full flex flex-row flex-nowrap pb-4">
         <div className="flex-shrink-0">
-          <img src={process.env.NEXT_PUBLIC_R3T_CMS_HOST + clientData.image.url} alt={clientData.image.alternativeText} className="h-auto w-20 sm:w-24 rounded-md shadow" />
+          <img src={r3tCMSUrl + clientData.image.url} alt={clientData.image.alternativeText}  className="h-auto w-20 sm:w-24 rounded-md shadow" />
         </div>
         <div className="pl-3 flex-shrink">
           <h4>
