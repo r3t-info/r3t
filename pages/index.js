@@ -1,5 +1,7 @@
 import React from "react";
 import Head from "next/head";
+import { getSortedClientsData } from "../lib/getSortedClientsData";
+import { getDataByFileName } from "../lib/getDataByFileName";
 import Client from "../components/client";
 import ReactMarkdown from "react-markdown";
 import R3tLogo from "../components/svgs/r3t-logo";
@@ -7,7 +9,6 @@ import DataToAction from "../components/svgs/data-to-action";
 import Direction from "../components/svgs/border/direction";
 import DirectionMask from "../components/svgs/border/direction-mask";
 import Icons from "../components/svgs/icons/icons";
-import getData from "../lib/getData";
 
 export function IntroductionParagraph(props) {
   return <p className="text-xl leading-snug sm:px-10 sm:leading-normal">{props.children}</p>;
@@ -28,7 +29,7 @@ export function OurMethodParagraph(props) {
 }
 
 export function OurAnalysisParagraph(props) {
-  return <p className="text-lg lg:text-xl leading-snug md:max-w-md md:mx-auto lg:mx-0 lg:ml-auto lg:mr-10">{props.children}</p>;
+  return <p className="text-lg lg:text-xl leading-snug md:max-w-md md:mx-auto lg:mx-0 lg:ml-auto lg:mr-16">{props.children}</p>;
 }
 
 export function OurAnalysisCaption(props) {
@@ -59,10 +60,9 @@ export default function Home({
   ourAnalysisData,
   contactData,
 }) {
-  const r3tCMSUrl = process.env.NEXT_PUBLIC_R3T_CMS_HOST;
 
   const allClientsAsCards = ourClientsData.clients.map((clientData) => {
-    return <Client clientData={clientData} key={clientData.id} r3tCMSUrl={r3tCMSUrl}></Client>;
+    return <Client clientData={clientData} key={clientData.id} />;
   });
 
   return (
@@ -78,13 +78,13 @@ export default function Home({
         <meta property="og:url" content={socialMediaData.url} />
         <meta property="og:title" content={socialMediaData.socialTitle} />
         <meta property="og:description" content={socialMediaData.socialDescription} />
-        <meta property="og:image" content={r3tCMSUrl + socialMediaData.socialImage.url} />
+        <meta property="og:image" content={socialMediaData.socialImageUrl} />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={socialMediaData.url} />
         <meta property="twitter:title" content={socialMediaData.socialTitle} />
         <meta property="twitter:description" content={socialMediaData.socialDescription} />
-        <meta property="twitter:image" content={r3tCMSUrl + socialMediaData.socialImage.url} />
+        <meta property="twitter:image" content={socialMediaData.socialImageUrl} />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -119,7 +119,7 @@ export default function Home({
         <section id="our-clients" className="bg-dark pb-12">
           <h2 className="text-secondary pt-8 sm:pt-12 xl:pt-24 mb-5 xl:mb-8">{ourClientsData.title}</h2>
           <ReactMarkdown
-            source={ourClientsData.introductionOurClients}
+            source={ourClientsData.content}
             renderers={{
               strong: Strong,
               paragraph: ClientsParagraph,
@@ -156,7 +156,7 @@ export default function Home({
           <h2 className="text-secondary pt-8 sm:pt-12 pb-5 md:pb-6 lg:pt-16 lg:pb-12 xl:pt-24 xl:mb-8">
             {ourAnalysisData.title}
           </h2>
-          <div className="flex flex-wrap justify-center px-4 md:px-10 max-w-md mx-auto md:max-w-full md:items-center">
+          <div className="flex flex-wrap justify-center px-4 md:px-10 max-w-md mx-auto md:max-w-full md:items-start">
             <div className="w-full md:w-1/2">
               <ReactMarkdown
                 source={ourAnalysisData.content}
@@ -164,15 +164,15 @@ export default function Home({
                 renderers={{ strong: Strong, paragraph: OurAnalysisParagraph }}
               />
             </div>
-            <div className="w-full sm:px-2 md:w-1/2">
-              <div className="mx-auto md:max-w-xs lg:max-w-sm lg:mx-0 lg:mr-auto lg:ml-10">
+            <div className="w-full sm:px-2 md:w-1/2 md:-mt-1">
+              <div className="mx-auto md:max-w-xs lg:max-w-sm lg:mx-0 lg:mr-auto lg:ml-16">
               <img
-                src={r3tCMSUrl + ourAnalysisData.cartoon.url}
-                alt={ourAnalysisData.cartoon.alternativeText}
+                src={ourAnalysisData.cartoonUrl}
+                alt={ourAnalysisData.cartoonAlternativeText}
                 className="h-full w-full"
               />
               <ReactMarkdown
-                source={ourAnalysisData.cartoon.caption}
+                source={ourAnalysisData.cartoonCaption}
                 skipHtml
                 renderers={{ paragraph: OurAnalysisCaption, link: OurAnalysisCaptionLink }}
               ></ReactMarkdown>
@@ -207,11 +207,11 @@ export default function Home({
           </address>
           <div className="mt-4 sm:mt-8 mb-2 lg:mb-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-full lg:w-1/2 lg:order-1 lg:pr-4 xl:pr-12">
             <picture>
-              <source srcSet={r3tCMSUrl + contactData.portraitImageWebP.url} type="image/webp" />
-              <source srcSet={r3tCMSUrl + contactData.portraitImageJPG.url} type="image/jpeg" />
+              <source srcSet={contactData.portraitImageWebpUrl} type="image/webp" />
+              <source srcSet={contactData.portraitImageJpgUrl} type="image/jpeg" />
               <img
-                src={r3tCMSUrl + contactData.portraitImageJPG.url}
-                alt={contactData.portraitImageJPG.alternativeText}
+                src={contactData.portraitImageJpgUrl}
+                alt={`${contactData.name}, ${contactData.position} at ${socialMediaData.name}`}
                 className="rounded-lg shadow sm:shadow-md w-full lg:max-w-md lg:ml-auto"
               />
             </picture>
@@ -226,12 +226,15 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-  const socialMediaData = await getData("social-media");
-  const introductionData = await getData("introduction");
-  const ourClientsData = await getData("our-clients");
-  const ourMethodData = await getData("our-method");
-  const ourAnalysisData = await getData("our-analysis");
-  const contactData = await getData("contact");
+
+  const sortedClientsData = await getSortedClientsData();
+  const socialMediaData = await getDataByFileName("social-media");
+  const introductionData = await getDataByFileName("introduction");
+  const ourClientsData = await getDataByFileName("our-clients");
+  ourClientsData.clients = sortedClientsData;
+  const ourMethodData = await getDataByFileName("our-method");
+  const ourAnalysisData = await getDataByFileName("our-analysis");
+  const contactData = await getDataByFileName("contact");
 
   return {
     props: {
@@ -241,7 +244,6 @@ export async function getStaticProps() {
       ourMethodData,
       ourAnalysisData,
       contactData,
-    },
-    revalidate: 1,
+    }
   };
 }

@@ -1,3 +1,6 @@
+---
+title: Our Method
+---
 ![team]()
 The **3T method** begins by scouting the most committed decision makers and domain experts in your organization.
 

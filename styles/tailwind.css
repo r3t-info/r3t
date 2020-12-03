@@ -64,7 +64,6 @@
   .direction-light .fill-bg {
     @apply fill-current stroke-current text-dark;
   }
-
   @screen sm {
     h2 {
       @apply text-3xl;
