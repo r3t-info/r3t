@@ -27,6 +27,22 @@ export function OurMethodParagraph(props) {
   );
 }
 
+export function OurAnalysisParagraph(props) {
+  return <p className="text-lg lg:text-xl leading-snug md:max-w-md md:mx-auto lg:mx-0 lg:ml-auto lg:mr-10">{props.children}</p>;
+}
+
+export function OurAnalysisCaption(props) {
+  return <p className="font-system text-xs lg:text-base tracking-tight text-center">{props.children}</p>;
+}
+
+export function OurAnalysisCaptionLink(props) {
+  return (
+    <a href={props.href} className="text-xs lg:text-base">
+      {props.children}
+    </a>
+  );
+}
+
 export function Strong(props) {
   return <strong className="font-medium">{props.children}</strong>;
 }
@@ -35,8 +51,14 @@ export function Icon(props) {
   return <Icons className="h-10 xl:h-12 mx-auto mb-2 xl:mb-6 stroke-current text-accent" title={props.alt} />;
 }
 
-export default function Home({ socialMediaData, introductionData, ourClientsData, ourMethodData, contactData }) {
-  
+export default function Home({
+  socialMediaData,
+  introductionData,
+  ourClientsData,
+  ourMethodData,
+  ourAnalysisData,
+  contactData,
+}) {
   const r3tCMSUrl = process.env.NEXT_PUBLIC_R3T_CMS_HOST;
 
   const allClientsAsCards = ourClientsData.clients.map((clientData) => {
@@ -130,12 +152,42 @@ export default function Home({ socialMediaData, introductionData, ourClientsData
             <DirectionMask className="light-arrow" />
           </div>
         </section>
+        <section id="our-analysis" className="bg-dark pb-16">
+          <h2 className="text-secondary pt-8 sm:pt-12 pb-5 md:pb-6 lg:pt-16 lg:pb-12 xl:pt-24 xl:mb-8">
+            {ourAnalysisData.title}
+          </h2>
+          <div className="flex flex-wrap justify-center px-4 md:px-10 max-w-md mx-auto md:max-w-full md:items-center">
+            <div className="w-full md:w-1/2">
+              <ReactMarkdown
+                source={ourAnalysisData.content}
+                skipHtml
+                renderers={{ strong: Strong, paragraph: OurAnalysisParagraph }}
+              />
+            </div>
+            <div className="w-full sm:px-2 md:w-1/2">
+              <div className="mx-auto md:max-w-xs lg:max-w-sm lg:mx-0 lg:mr-auto lg:ml-10">
+              <img
+                src={r3tCMSUrl + ourAnalysisData.cartoon.url}
+                alt={ourAnalysisData.cartoon.alternativeText}
+                className="h-full w-full"
+              />
+              <ReactMarkdown
+                source={ourAnalysisData.cartoon.caption}
+                skipHtml
+                renderers={{ paragraph: OurAnalysisCaption, link: OurAnalysisCaptionLink }}
+              ></ReactMarkdown>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer id="contact" className="bg-dark px-4 pb-2">
-        <h2 className="text-secondary text-3xl lg:text-4xl font-medium normal-case leading-tight pt-12 xl:pt-20 md:pt-16 max-w-sm mx-auto mb-6 md:mb-3 lg:mb-8 xl:mb-12 xl:font-bold">
+      <footer id="contact" className="bg-light px-4 pb-2">
+        <div className="w-full">
+          <Direction className="dark-arrow" />
+        </div>
+        <h2 className="text-titleOnLight text-3xl lg:text-4xl font-medium normal-case leading-tight pt-12 xl:pt-20 md:pt-16 max-w-sm mx-auto mb-6 md:mb-3 lg:mb-8 xl:mb-12 xl:font-bold">
           {contactData.callToAction}
         </h2>
-
         <div id="address-and-portrait" className="flex flex-wrap justify-center">
           <address className="my-4 md:mt-10 lg:mt-20 w-full lg:w-1/2 lg:pl-4 xl:pl-12 flex-grow-0 not-italic md:text-xl md:leading-relaxed text-center lg:text-left lg:order-2">
             <h4 className="sm:text-2xl xl:text-3xl">
@@ -178,6 +230,7 @@ export async function getStaticProps() {
   const introductionData = await getData("introduction");
   const ourClientsData = await getData("our-clients");
   const ourMethodData = await getData("our-method");
+  const ourAnalysisData = await getData("our-analysis");
   const contactData = await getData("contact");
 
   return {
@@ -186,6 +239,7 @@ export async function getStaticProps() {
       introductionData,
       ourClientsData,
       ourMethodData,
+      ourAnalysisData,
       contactData,
     },
     revalidate: 1,
