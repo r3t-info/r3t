@@ -29,7 +29,11 @@ export function OurMethodParagraph(props) {
 }
 
 export function OurAnalysisParagraph(props) {
-  return <p className="text-lg lg:text-xl leading-snug md:max-w-md md:mx-auto lg:mx-0 lg:ml-auto lg:mr-16">{props.children}</p>;
+  return (
+    <p className="text-lg lg:text-xl leading-snug md:max-w-md md:mx-auto lg:mx-0 lg:ml-auto lg:mr-16">
+      {props.children}
+    </p>
+  );
 }
 
 export function OurAnalysisCaption(props) {
@@ -60,7 +64,6 @@ export default function Home({
   ourAnalysisData,
   contactData,
 }) {
-
   const allClientsAsCards = ourClientsData.clients.map((clientData) => {
     return <Client clientData={clientData} key={clientData.id} />;
   });
@@ -79,14 +82,16 @@ export default function Home({
         <meta property="og:title" content={socialMediaData.socialTitle} />
         <meta property="og:description" content={socialMediaData.socialDescription} />
         <meta property="og:image" content={socialMediaData.socialImageUrl} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content={socialMediaData.socialImageWidth} />
+        <meta property="og:image:height" content={socialMediaData.socialImageHeight} />
+        <meta property="og:image:alt" content={socialMediaData.socialTitle} />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={socialMediaData.url} />
         <meta property="twitter:title" content={socialMediaData.socialTitle} />
         <meta property="twitter:description" content={socialMediaData.socialDescription} />
         <meta property="twitter:image" content={socialMediaData.socialImageUrl} />
-
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="px-2 pt-4 pb-3 sm:pt-6 xl:pt-8 lg:pb-0 bg-dark">
         <div className="h-16 sm:h-20">
@@ -166,16 +171,16 @@ export default function Home({
             </div>
             <div className="w-full sm:px-2 md:w-1/2 md:-mt-1">
               <div className="mx-auto md:max-w-xs lg:max-w-sm lg:mx-0 lg:mr-auto lg:ml-16">
-              <img
-                src={ourAnalysisData.cartoonUrl}
-                alt={ourAnalysisData.cartoonAlternativeText}
-                className="h-full w-full"
-              />
-              <ReactMarkdown
-                source={ourAnalysisData.cartoonCaption}
-                skipHtml
-                renderers={{ paragraph: OurAnalysisCaption, link: OurAnalysisCaptionLink }}
-              ></ReactMarkdown>
+                <img
+                  src={ourAnalysisData.cartoonUrl}
+                  alt={ourAnalysisData.cartoonAlternativeText}
+                  className="h-full w-full"
+                />
+                <ReactMarkdown
+                  source={ourAnalysisData.cartoonCaption}
+                  skipHtml
+                  renderers={{ paragraph: OurAnalysisCaption, link: OurAnalysisCaptionLink }}
+                ></ReactMarkdown>
               </div>
             </div>
           </div>
@@ -226,7 +231,6 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-
   const sortedClientsData = await getSortedClientsData();
   const socialMediaData = await getDataByFileName("social-media");
   const introductionData = await getDataByFileName("introduction");
@@ -244,6 +248,6 @@ export async function getStaticProps() {
       ourMethodData,
       ourAnalysisData,
       contactData,
-    }
+    },
   };
 }
