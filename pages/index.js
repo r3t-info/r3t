@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import { getSortedClientsData } from "../lib/getSortedClientsData";
 import { getDataByFileName } from "../lib/getDataByFileName";
@@ -9,6 +9,7 @@ import DataToAction from "../components/svgs/data-to-action";
 import Direction from "../components/svgs/border/direction";
 import DirectionMask from "../components/svgs/border/direction-mask";
 import Icons from "../components/svgs/icons/icons";
+/* import cookieConsent from "cookieconsent"; */
 
 export function IntroductionParagraph(props) {
   return <p className="text-xl leading-snug sm:px-10 sm:leading-normal">{props.children}</p>;
@@ -64,9 +65,14 @@ export default function Home({
   ourAnalysisData,
   contactData,
 }) {
+
   const allClientsAsCards = ourClientsData.clients.map((clientData) => {
     return <Client clientData={clientData} key={clientData.id} />;
   });
+
+/*   useEffect(() => {
+    console.log(cookieConsent);
+  }, []) */
 
   return (
     <>
@@ -169,7 +175,7 @@ export default function Home({
                 renderers={{ strong: Strong, paragraph: OurAnalysisParagraph }}
               />
             </div>
-            <div className="w-full sm:px-2 md:w-1/2 md:-mt-1">
+            <div className="w-full sm:px-2 md:w-1/2 md:-mt-2 xl:-mt-4">
               <div className="mx-auto md:max-w-xs lg:max-w-sm lg:mx-0 lg:mr-auto lg:ml-16">
                 <img
                   src={ourAnalysisData.cartoonUrl}
