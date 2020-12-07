@@ -14,6 +14,6 @@ The structures, e.g. the existing value chains creates lock in effects where the
  
 Most of the companies in the value chains delivers *steam engines* and the consultant firms shovel coal with *paid by the hour* business models.
  
-This is a fascinating paradox, the “consulting by the hour” firms claims to sell digital transformation, while the majority of these firms work with 30 years old business models.
+This is a fascinating paradox, the “consulting by the hour” firms claim to sell digital transformation, while the majority of these firms work with 30 years old business models.
 
 Complex problems cannot be solved by new technology alone.
