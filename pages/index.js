@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Head from "next/head";
 import { getSortedClientsData } from "../lib/getSortedClientsData";
 import { getDataByFileName } from "../lib/getDataByFileName";
 import Client from "../components/client";
 import ReactMarkdown from "react-markdown";
+import CookieConsent from "react-cookie-consent";
 import R3tLogo from "../components/svgs/r3t-logo";
 import DataToAction from "../components/svgs/data-to-action";
 import Direction from "../components/svgs/border/direction";
 import DirectionMask from "../components/svgs/border/direction-mask";
 import Icons from "../components/svgs/icons/icons";
-/* import cookieConsent from "cookieconsent"; */
 
 export function IntroductionParagraph(props) {
   return <p className="text-xl leading-snug sm:px-10 sm:leading-normal">{props.children}</p>;
@@ -69,10 +69,6 @@ export default function Home({
   const allClientsAsCards = ourClientsData.clients.map((clientData) => {
     return <Client clientData={clientData} key={clientData.id} />;
   });
-
-/*   useEffect(() => {
-    console.log(cookieConsent);
-  }, []) */
 
   return (
     <>
@@ -232,6 +228,8 @@ export default function Home({
           <R3tLogo className="h-full mx-auto lg:h-16 fill-current text-primary" backgroundIsDark={false} />
         </div>
       </footer>
+      <CookieConsent disableStyles="true" containerClasses="fixed bottom-0 right-0 md:right-auto md:left-0 m-1 mb-6 md:mb-1 bg-light border border-dark rounded-sm p-2 sm:p-3 text-base md:flex md:flex-row" buttonWrapperClasses="flex justify-end md:justify-start" buttonClasses="underline hover:text-accent hover:no-underline md:ml-3" buttonText="Continue" expires={150}>This website
+uses cookies.</CookieConsent>
     </>
   );
 }
