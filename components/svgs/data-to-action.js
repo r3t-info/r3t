@@ -7,11 +7,10 @@ export default function DataToAction(props) {
   const myPathRef = useRef(null);
   const [length, setLength] = useState(0);
   const [svgRef, inView] = useInView({ triggerOnce: false, rootMargin: "-150px 0px" });
-  
+
   useEffect(() => {
     setLength(myPathRef.current.getTotalLength());
   }, [myPathRef]);
-
 
   return (
     <>
@@ -42,20 +41,35 @@ export default function DataToAction(props) {
           .myPath {
             stroke-dasharray: ${length};
             stroke-dashoffset: ${length};
-            animation: dash 1.25s ease-in-out ${inView ? "running" : "paused"} forwards;
+            animation: dash 6s infinite ease-in-out ${inView ? "running" : "paused"} forwards;
           }
           .head {
             opacity: 0;
-            animation: fadeIn 0.05s linear 1.2s ${inView ? "running" : "paused"} forwards;
+            animation: fadeIn 6s infinite 1.18s linear ${inView ? "running" : "paused"} forwards;
           }
           @keyframes dash {
-            to {
+            20% {
               stroke-dashoffset: 0;
+            }
+            70% {
+              stroke-dashoffset: 0;
+            }
+            70.01% {
+              stroke-dashoffset: ${length};
             }
           }
           @keyframes fadeIn {
-            to {
+            0% {
+              opacity: 0;
+            }
+            8.33% {
               opacity: 1;
+            }
+            50% {
+              opacity: 1;
+            }
+            50.01% {
+              opacity: 0;
             }
           }
         `}</style>
