@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@types/react": "^16.9.55",
-    "axios": "^0.21.0",
     "gray-matter": "^4.0.2",
     "next": "^10.0.3",
     "postcss-flexbugs-fixes": "^4.2.1",
