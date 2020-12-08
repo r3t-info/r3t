@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Head from "next/head";
 import { getSortedClientsData } from "../lib/getSortedClientsData";
 import { getDataByFileName } from "../lib/getDataByFileName";
@@ -7,9 +7,9 @@ import ReactMarkdown from "react-markdown";
 import CookieConsent from "react-cookie-consent";
 import R3tLogo from "../components/svgs/r3t-logo";
 import DataToAction from "../components/svgs/data-to-action";
-import Direction from "../components/svgs/border/direction";
-import DirectionMask from "../components/svgs/border/direction-mask";
-import Icons from "../components/svgs/icons/icons";
+import Direction from "../components/svgs/directions/direction";
+import DirectionMask from "../components/svgs/directions/direction-mask";
+import Icons from "../components/svgs/icons";
 
 export function IntroductionParagraph(props) {
   return <p className="text-xl leading-snug sm:px-10 sm:leading-normal">{props.children}</p>;
@@ -65,12 +65,10 @@ export default function Home({
   ourAnalysisData,
   contactData,
 }) {
-
   const allClientsAsCards = ourClientsData.clients.map((clientData) => {
     return <Client clientData={clientData} key={clientData.id} />;
   });
 
-  console.log(process.env.NODE_ENV);
   const vercelUrl = process.env.NODE_ENV === "production" ? "https://" + process.env.VERCEL_URL + "/" : null;
 
   return (
@@ -110,7 +108,7 @@ export default function Home({
             <Direction className="dark-arrow h-full" />
           </div>
           <div className="flex justify-center px-4 mt-12 mb-10 xl:mt-16 xl:mb-5">
-            <div className="bg-light shadow-md inline-block rounded-md sm:rounded-lg border border-accent border-opacity-5 px-3 sm:px-0 sm:pb-4 md:pb-3 max-w-sm sm:max-w-lg">
+            <div className="bg-light shadow-md inline-block rounded-md sm:rounded-lg border border-accent border-opacity-50 px-3 sm:px-0 sm:pb-4 md:pb-3 max-w-sm sm:max-w-lg">
               <h2 className="text-titleOnLight py-5 sm:pt-8 sm:pb-4 max-w-sm mx-auto leading-tight">
                 {introductionData.title}
               </h2>
@@ -247,10 +245,9 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-
-  const sortedClientsData = await getSortedClientsData();
   const socialMediaData = await getDataByFileName("social-media");
   const introductionData = await getDataByFileName("introduction");
+  const sortedClientsData = await getSortedClientsData();
   const ourClientsData = await getDataByFileName("our-clients");
   ourClientsData.clients = sortedClientsData;
   const ourMethodData = await getDataByFileName("our-method");

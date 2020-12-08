@@ -3,6 +3,7 @@
 @import "tailwindcss/utilities";
 
 @layer base {
+  /*   Font-faces for Munken Sans */
   @font-face {
     font-family: Munken Sans;
     font-weight: 400;
@@ -24,10 +25,7 @@
       url(/fonts/munken-sans/MunkenSansWeb-Bold.woff) format("woff");
     font-display: swap;
   }
-  h2 {
-    @apply text-2xl text-center font-bold uppercase tracking-tight;
-  }
-  h1,
+  /* Typography and headings */
   h4,
   p,
   span,
@@ -45,6 +43,9 @@
   #our-method p {
     @apply pb-8 text-center;
   }
+  h2 {
+    @apply text-2xl text-center font-bold uppercase tracking-tight;
+  }
   h4 {
     @apply text-xl font-medium;
   }
@@ -54,6 +55,7 @@
   a:hover {
     @apply text-accent no-underline;
   }
+  /*   Directions (borders between the sections) */
   .direction-dark .fill-arrow,
   .direction-dark .fill-bg {
     @apply fill-current stroke-current text-dark;
@@ -64,6 +66,7 @@
   .direction-light .fill-bg {
     @apply fill-current stroke-current text-dark;
   }
+  /* Media queries */
   @screen sm {
     h2 {
       @apply text-3xl;

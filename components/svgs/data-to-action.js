@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
-// @refresh reset
-
 export default function DataToAction(props) {
   const myPathRef = useRef(null);
   const [length, setLength] = useState(0);

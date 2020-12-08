@@ -22,15 +22,9 @@ module.exports = {
         dark: "#FBE9E7",
         light: "#FFFAFA",
       },
-      borderWidth: {
-        3: "3px",
-      },
       backgroundImage: (theme) => ({
         "who-we-are": "url('/images/background/who-we-are.webp'), url('/images/background/who-we-are.jpg')",
       }),
-      backgroundOpacity: {
-        85: "0.85",
-      },
     },
   },
   variants: {},
