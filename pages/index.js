@@ -66,13 +66,13 @@ export default function Home({
   contactData,
 }) {
 
-  useEffect(() => {
-    const baseUrl = window.location.href;
-  }, [])
-
   const allClientsAsCards = ourClientsData.clients.map((clientData) => {
     return <Client clientData={clientData} key={clientData.id} />;
   });
+
+  console.log(process.env.NEXT_PUBLIC_HOST);
+  console.log(process.env.NODE_ENV);
+  const vercelUrl = process.env.NODE_ENV === "production" ? "https://" + process.env.VERCEL_URL + "/" : null;
 
   return (
     <>
@@ -87,7 +87,7 @@ export default function Home({
         <meta property="og:url" content={socialMediaData.url} />
         <meta property="og:title" content={socialMediaData.socialTitle} />
         <meta property="og:description" content={socialMediaData.socialDescription} />
-        <meta property="og:image" content={process.env.NODE_ENV === "production" ? baseUrl + socialMediaData.socialImageUrl : socialMediaData.socialImageUrl} />
+        <meta property="og:image" content={vercelUrl + socialMediaData.socialImageUrl} />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content={socialMediaData.socialImageWidth} />
         <meta property="og:image:height" content={socialMediaData.socialImageHeight} />
@@ -97,7 +97,7 @@ export default function Home({
         <meta property="twitter:url" content={socialMediaData.url} />
         <meta property="twitter:title" content={socialMediaData.socialTitle} />
         <meta property="twitter:description" content={socialMediaData.socialDescription} />
-        <meta property="twitter:image" content={process.env.NODE_ENV === "production" ? baseUrl + socialMediaData.socialImageUrl : socialMediaData.socialImageUrl} />
+        <meta property="twitter:image" content={vercelUrl + socialMediaData.socialImageUrl} />
       </Head>
       <header className="px-2 pt-4 pb-3 sm:pt-6 xl:pt-8 lg:pb-0 bg-dark">
         <div className="h-16 sm:h-20">
@@ -247,6 +247,7 @@ export default function Home({
 }
 
 export async function getStaticProps() {
+
   const sortedClientsData = await getSortedClientsData();
   const socialMediaData = await getDataByFileName("social-media");
   const introductionData = await getDataByFileName("introduction");
