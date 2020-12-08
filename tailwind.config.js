@@ -1,4 +1,3 @@
-const { colors } = require("tailwindcss/defaultTheme");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -13,7 +12,25 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Munken Sans", ...defaultTheme.fontFamily.sans],
-      }
+        system: [...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        primary: "#F50057",
+        secondary: "#E91E63",
+        titleOnLight: "#1A237E",
+        accent: "#E91E63",
+        dark: "#FBE9E7",
+        light: "#FFFAFA",
+      },
+      borderWidth: {
+        3: "3px",
+      },
+      backgroundImage: (theme) => ({
+        "who-we-are": "url('/images/background/who-we-are.webp'), url('/images/background/who-we-are.jpg')",
+      }),
+      backgroundOpacity: {
+        85: "0.85",
+      },
     },
   },
   variants: {},

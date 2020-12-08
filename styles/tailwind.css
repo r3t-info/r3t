@@ -8,38 +8,86 @@
     font-weight: 400;
     src: url(/fonts/munken-sans/MunkenSansWeb-Regular.woff2) format("woff2"),
       url(/fonts/munken-sans/MunkenSansWeb-Regular.woff) format("woff");
+    font-display: swap;
   }
   @font-face {
     font-family: Munken Sans;
     font-weight: 500;
     src: url(/fonts/munken-sans/MunkenSansWeb-Medium.woff2) format("woff2"),
       url(/fonts/munken-sans/MunkenSansWeb-Medium.woff) format("woff");
+    font-display: swap;
   }
   @font-face {
     font-family: Munken Sans;
     font-weight: 700;
     src: url(/fonts/munken-sans/MunkenSansWeb-Bold.woff2) format("woff2"),
       url(/fonts/munken-sans/MunkenSansWeb-Bold.woff) format("woff");
+    font-display: swap;
   }
-  h1, h2, h4, p, span, address, a {
+  h2 {
+    @apply text-2xl text-center font-bold uppercase tracking-tight;
+  }
+  h1,
+  h4,
+  p,
+  span,
+  a {
+    @apply text-gray-900;
+  }
+  address p,
+  address h4,
+  address a {
     @apply text-gray-900;
   }
   p {
-    @apply mb-4;
+    @apply pb-4;
+  }
+  #our-method p {
+    @apply pb-8 text-center;
   }
   h4 {
     @apply text-xl font-medium;
   }
-  #our-method p {
-    @apply text-2xl tracking-tight;
-  }
   a {
     @apply underline;
+  }
+  a:hover {
+    @apply text-accent no-underline;
+  }
+  .direction-dark .fill-arrow,
+  .direction-dark .fill-bg {
+    @apply fill-current stroke-current text-dark;
+  }
+  #who-we-are .direction-light .fill-arrow {
+    @apply fill-current stroke-current text-light;
+  }
+  .direction-light .fill-bg {
+    @apply fill-current stroke-current text-dark;
+  }
+  @screen sm {
+    h2 {
+      @apply text-3xl;
+    }
+    a {
+      @apply text-lg;
+    }
+    #who-we-are p {
+      @apply pb-5;
+    }
+  }
+  @screen md {
+    #our-method p {
+      @apply pb-10;
+    }
   }
   @screen lg {
     #our-method p {
       @apply tracking-normal leading-normal mb-6;
     }
-  }  
+  }
+  @screen xl {
+    address a {
+      @apply text-xl;
+    }
+  }
 }
-
