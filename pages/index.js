@@ -70,7 +70,6 @@ export default function Home({
     return <Client clientData={clientData} key={clientData.id} />;
   });
 
-  console.log(process.env.NEXT_PUBLIC_HOST);
   console.log(process.env.NODE_ENV);
   const vercelUrl = process.env.NODE_ENV === "production" ? "https://" + process.env.VERCEL_URL + "/" : null;
 
@@ -98,6 +97,7 @@ export default function Home({
         <meta property="twitter:title" content={socialMediaData.socialTitle} />
         <meta property="twitter:description" content={socialMediaData.socialDescription} />
         <meta property="twitter:image" content={vercelUrl + socialMediaData.socialImageUrl} />
+        <meta property="twitter:image:alt" content={socialMediaData.socialTitle} />
       </Head>
       <header className="px-2 pt-4 pb-3 sm:pt-6 xl:pt-8 lg:pb-0 bg-dark">
         <div className="h-16 sm:h-20">
