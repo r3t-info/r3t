@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import { getSortedClientsData } from "../lib/getSortedClientsData";
 import { getDataByFileName } from "../lib/getDataByFileName";
@@ -66,6 +66,10 @@ export default function Home({
   contactData,
 }) {
 
+  useEffect(() => {
+    const baseUrl = window.location.href;
+  }, [])
+
   const allClientsAsCards = ourClientsData.clients.map((clientData) => {
     return <Client clientData={clientData} key={clientData.id} />;
   });
@@ -83,7 +87,7 @@ export default function Home({
         <meta property="og:url" content={socialMediaData.url} />
         <meta property="og:title" content={socialMediaData.socialTitle} />
         <meta property="og:description" content={socialMediaData.socialDescription} />
-        <meta property="og:image" content={socialMediaData.socialImageUrl} />
+        <meta property="og:image" content={process.env.NODE_ENV === "production" ? baseUrl + socialMediaData.socialImageUrl : socialMediaData.socialImageUrl} />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content={socialMediaData.socialImageWidth} />
         <meta property="og:image:height" content={socialMediaData.socialImageHeight} />
@@ -93,7 +97,7 @@ export default function Home({
         <meta property="twitter:url" content={socialMediaData.url} />
         <meta property="twitter:title" content={socialMediaData.socialTitle} />
         <meta property="twitter:description" content={socialMediaData.socialDescription} />
-        <meta property="twitter:image" content={socialMediaData.socialImageUrl} />
+        <meta property="twitter:image" content={process.env.NODE_ENV === "production" ? baseUrl + socialMediaData.socialImageUrl : socialMediaData.socialImageUrl} />
       </Head>
       <header className="px-2 pt-4 pb-3 sm:pt-6 xl:pt-8 lg:pb-0 bg-dark">
         <div className="h-16 sm:h-20">
@@ -228,8 +232,16 @@ export default function Home({
           <R3tLogo className="h-full mx-auto lg:h-16 fill-current text-primary" backgroundIsDark={false} />
         </div>
       </footer>
-      <CookieConsent disableStyles="true" containerClasses="fixed bottom-0 right-0 md:right-auto md:left-0 m-1 mb-6 md:mb-1 bg-light border border-dark rounded-sm p-2 sm:p-3 text-base md:flex md:flex-row" buttonWrapperClasses="flex justify-end md:justify-start" buttonClasses="underline hover:text-accent hover:no-underline md:ml-3" buttonText="Continue" expires={150}>This website
-uses cookies.</CookieConsent>
+      <CookieConsent
+        disableStyles="true"
+        containerClasses="fixed bottom-0 right-0 md:right-auto md:left-0 m-1 mb-6 md:mb-1 bg-light border border-dark rounded-sm p-2 sm:p-3 text-base md:flex md:flex-row"
+        buttonWrapperClasses="flex justify-end md:justify-start"
+        buttonClasses="underline hover:text-accent hover:no-underline md:ml-3"
+        buttonText="Continue"
+        expires={150}
+      >
+        This website uses cookies.
+      </CookieConsent>
     </>
   );
 }
