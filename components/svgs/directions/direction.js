@@ -23,9 +23,9 @@ export default function Direction(props) {
       preserveAspectRatio="none"
     >
       <g className="fill-arrow">
-        <path fill={isPainted ? "inherit" : "transparent"} d="M5.2.1h2611.6L1311 63.4z" />
+        <path fill={isPainted ? "inherit" : "white"} d="M5.2.1h2611.6L1311 63.4z" />
         <path
-          stroke={isPainted ? "inherit" : "transparent"}
+          stroke={isPainted ? "inherit" : "white"}
           strokeWidth="5"
           strokeMiterlimit="5"
           d="M2611.7.2L1311 63.3 10.3.2h2601.4M2622 0H0l1311 63.5L2622 0z"

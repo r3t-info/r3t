@@ -4,7 +4,7 @@ export default function DirectionMask(props) {
   const [classNames, setClassNames] = useState("");
   const [isPainted, setIsPainted] = useState(false);
 
-  const stroke = "inherit";
+  const stroke = isPainted ? "inherit" : "white";
   const strokeWidth = "5";
   const strokeMiterlimit = "5";
 
@@ -41,14 +41,14 @@ export default function DirectionMask(props) {
         />
         <g>
           <path
-            fill={isPainted ? "inherit" : "transparent"}
+            fill={isPainted ? "inherit" : "white"}
             stroke={stroke}
             strokeWidth={strokeWidth}
             strokeMiterlimit={strokeMiterlimit}
             d="M1316.2 63.4L2621.9.1v63.3z"
           />
           <path
-            fill={isPainted ? "inherit" : "transparent"}
+            fill={isPainted ? "inherit" : "white"}
             stroke={stroke}
             strokeWidth={strokeWidth}
             strokeMiterlimit={strokeMiterlimit}
