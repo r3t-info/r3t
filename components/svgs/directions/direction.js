@@ -7,11 +7,12 @@ export default function Direction(props) {
   useEffect(() => {
     if (props.className.includes("dark-arrow")) {
       setClassNames(`${props.className} direction-dark`);
+      setIsPainted(true);
     }
     if (props.className.includes("light-arrow")) {
       setClassNames(`${props.className} direction-light`);
+      setIsPainted(true);
     }
-    setIsPainted(true);
   }, []);
 
   return (
