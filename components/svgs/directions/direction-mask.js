@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function DirectionMask(props) {
   const [classNames, setClassNames] = useState("");
+  const [isPainted, setIsPainted] = useState(false);
 
   const stroke = "inherit";
   const strokeWidth = "5";
@@ -14,6 +15,7 @@ export default function DirectionMask(props) {
     if (props.className.includes("light-arrow")) {
       setClassNames(`${props.className} direction-light`);
     }
+    setIsPainted(true);
   }, []);
 
   return (
@@ -39,14 +41,14 @@ export default function DirectionMask(props) {
         />
         <g>
           <path
-            fill="inherit"
+            fill={isPainted ? "inherit" : "transparent"}
             stroke={stroke}
             strokeWidth={strokeWidth}
             strokeMiterlimit={strokeMiterlimit}
             d="M1316.2 63.4L2621.9.1v63.3z"
           />
           <path
-            fill="inherit"
+            fill={isPainted ? "inherit" : "transparent"}
             stroke={stroke}
             strokeWidth={strokeWidth}
             strokeMiterlimit={strokeMiterlimit}
