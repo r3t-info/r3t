@@ -29,12 +29,14 @@ export default function DirectionMask(props) {
     >
       <g className="fill-bg">
         <path
+          fill={isPainted ? "inherit" : "white"}
           stroke={stroke}
           strokeWidth={strokeWidth}
           strokeMiterlimit={strokeMiterlimit}
           d="M.1 63.4V.1l1305.7 63.3z"
         />
         <path
+          fill={isPainted ? "inherit" : "white"}
           stroke={stroke}
           strokeWidth={strokeWidth}
           strokeMiterlimit={strokeMiterlimit}
