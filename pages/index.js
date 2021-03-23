@@ -194,10 +194,10 @@ export default function Home({
         <div className="w-full">
           <Direction className="dark-arrow" />
         </div>
-        <h2 className="text-titleOnLight text-3xl lg:text-4xl font-medium normal-case leading-tight pt-12 xl:pt-20 md:pt-16 max-w-sm mx-auto mb-6 md:mb-3 lg:mb-8 xl:mb-12 xl:font-bold">
+        {/* <h2 className="text-titleOnLight text-3xl lg:text-4xl font-medium normal-case leading-tight pt-12 xl:pt-20 md:pt-16 max-w-sm mx-auto mb-6 md:mb-3 lg:mb-8 xl:mb-12 xl:font-bold">
           {contactData.callToAction}
-        </h2>
-        <div id="address-and-portrait" className="flex flex-wrap justify-center">
+        </h2> */}
+        {/* <div id="address-and-portrait" className="flex flex-wrap justify-center">
           <address className="my-4 md:mt-10 lg:mt-20 w-full lg:w-1/2 lg:pl-4 xl:pl-12 flex-grow-0 not-italic md:text-xl md:leading-relaxed text-center lg:text-left lg:order-2">
             <h4 className="sm:text-2xl xl:text-3xl">
               {contactData.name}
@@ -225,8 +225,8 @@ export default function Home({
               />
             </picture>
           </div>
-        </div>
-        <div className="w-32 sm:w-40 lg:w-full mx-auto mt-5 mb-6 lg:mt-2 lg:mb-10">
+        </div> */}
+        <div className="w-32 sm:w-40 lg:w-full mx-auto mt-8 mb-6">
           <R3tLogo className="h-full mx-auto lg:h-16 fill-current text-primary" backgroundIsDark={false} />
         </div>
       </footer>
